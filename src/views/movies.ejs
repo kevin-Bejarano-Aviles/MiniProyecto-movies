@@ -1,0 +1,10 @@
+<%- include("partials/head") %> 
+<body>
+    <%- include("partials/header") %> 
+    <div style="margin: 10px; display: flex; flex-direction: column;">
+        <% movies.forEach(movie => { %>
+            <a style="margin: 5px;" href="/movies/detail/<%= movie.id %>"><%= movie.title %> </a>
+        <% }) %>
+    </div>
+</body>
+</html>

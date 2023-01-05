@@ -1,0 +1,16 @@
+<%- include("partials/head") %> 
+<body>
+    <%- include("partials/header") %> 
+    <div style="margin: 10px; display: flex; flex-direction: column;">
+       <h1>Titulo de la pelicula: <%= movie.title %> </h1>
+        <h3>Rating: <%= movie.rating %> </h3>
+        <h3>Premios: <%= movie.awards %>  </h3>
+        <h3>Duracion: <%= movie.length  %> </h3>
+        <h3>Fecha de estreno: <%= date %> </h3>
+    </div>
+    <form action="/movies/delete/<%= movie.id %>?_method=DELETE " method="post">
+        <button type="submit">Borrar</button>
+    </form>
+    <button><a href="/movies/edit/<%= movie.id %> ">Modificar</a></button>
+</body>
+</html>

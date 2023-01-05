@@ -1,0 +1,31 @@
+<%- include("partials/head") %> 
+<body>
+    <%- include("partials/header") %> 
+    <div style="margin: 10px; display: flex; flex-direction: column;">
+       <form action="/movies/edit/<%= movie.id %>?_method=PUT" method="POST">
+        <div>
+            <label for="">Titulo de la pelicula</label>
+            <input type="text" name="title" value="<%= movie.title %>">
+        </div>
+        <div>
+            <label for="">Rating</label>
+            <input type="text" name="rating" value="<%= movie.rating%>">
+        </div>
+        <div>
+            <label for="">Awards</label>
+            <input type="number" name="awards" value="<%= movie.awards%>">
+        </div>
+        <div>
+            <label for="">Duracion en min</label>
+            <input type="number" name="length" value="<%= movie.length%>">
+        </div>
+        <div>
+            <label for="">Fecha de estreno</label>
+            <input type="date" name="release_date" value="<%=date/* movie.release_date.toLocaleDateString("en-CA") */%>">
+        </div>
+        <button type="submit">Modificar</button>
+        <!-- <button type="reset">Cancelar</button> -->
+       </form>
+    </div>
+</body>
+</html>
