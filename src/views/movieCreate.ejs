@@ -5,27 +5,40 @@
        <form action="/movies/create" method="POST">
         <div>
             <label for="">Titulo de la pelicula</label>
-            <input type="text" name="title">
+            <input type="text" name="title" value="">
         </div>
         <div>
             <label for="">Rating</label>
-            <input type="text" name="rating">
+            <input type="text" name="rating" value="">
         </div>
         <div>
             <label for="">Awards</label>
-            <input type="number" name="awards">
+            <input type="number" name="awards" value="">
         </div>
         <div>
             <label for="">Duracion en min</label>
-            <input type="number" name="length">
+            <input type="number" name="length" value="">
         </div>
         <div>
             <label for="">Fecha de estreno</label>
-            <input type="date" name="release_date">
+            <input type="date" name="release_date" value="">
         </div>
         <button type="submit">Crear</button>
         <button type="reset">Cancelar</button>
        </form>
+    </div>
+    <div class="errors">
+        <% if (typeof errors !='undefined' ) { %>
+            <h5 style="color: red;">Errores</h5>
+            <ul>
+            <% errors.forEach(element=> { %>
+        
+              <li>
+                <%= element.msg %>
+              </li>
+              <% }) %>
+                </ul>
+                <% } %>
     </div>
 </body>
 </html>

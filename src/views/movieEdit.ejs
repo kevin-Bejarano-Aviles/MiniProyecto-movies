@@ -27,5 +27,18 @@
         <!-- <button type="reset">Cancelar</button> -->
        </form>
     </div>
+    <div class="errors">
+        <% if (typeof errors !='undefined' ) { %>
+            <h5 style="color: red;">Errores</h5>
+            <ul>
+            <% errors.forEach(element=> { %>
+        
+              <li>
+                <%= element.msg %>
+              </li>
+              <% }) %>
+                </ul>
+                <% } %>
+    </div>
 </body>
 </html>

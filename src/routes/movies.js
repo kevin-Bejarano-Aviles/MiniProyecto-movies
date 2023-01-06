@@ -9,12 +9,14 @@ const {
   editMovie,
   deleteMovie,
 } = require('../controllers/moviesController');
+const moviesValidations = require('../validations/moviesValidations');
+
 router.get('/', allMovies);
 router.get('/detail/:id', movieDetail);
 router.get('/create', viewCreateMovie);
-router.post('/create', createMovie);
+router.post('/create', moviesValidations, createMovie);
 router.get('/edit/:id', viewEditMovie);
-router.put('/edit/:id', editMovie);
+router.put('/edit/:id', moviesValidations, editMovie);
 router.delete('/delete/:id', deleteMovie);
 
 module.exports = router;
