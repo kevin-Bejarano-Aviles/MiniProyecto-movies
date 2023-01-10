@@ -9,6 +9,8 @@ const db = require('./data/db');
 const methodOverride = require('method-override');
 const moviesRouter = require('./routes/movies');
 const homeRouter = require('./routes/home');
+const generRouter = require('./routes/genres')
+const actorRouter = require('./routes/actor');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -22,6 +24,8 @@ app.use(express.json());
 
 app.use('/',homeRouter)
 app.use('/movies', moviesRouter);
+app.use('/genres',generRouter)
+app.use('/actor',actorRouter)
 
 const dbConnectionServerUp = async () => {
   try {

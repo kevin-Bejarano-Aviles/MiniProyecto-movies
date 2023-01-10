@@ -4,8 +4,6 @@ const { DataTypes } = require('sequelize');
 const moviesModel = db.define(
   'movies',
   {
-    /*   created_at: { type: DataTypes.DATE },
-  updated_at: { type: DataTypes.DATE }, */
     title: { type: DataTypes.STRING },
     rating: { type: DataTypes.DECIMAL(3, 1) },
     awards: { type: DataTypes.INTEGER },
