@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const {actorDetails }  = require('../controllers/actorController')
-router.get('/detail/:id',actorDetails)
+const { actorById, allActors } = require('../controllers/actorController');
 
-module.exports = router
+router.get('/', allActors);
+router.get('/:id', actorById);
+
+module.exports = router;

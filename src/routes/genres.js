@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { detailGenreWithMovies}  = require('../controllers/genresController')
-router.get('/detail/:id',detailGenreWithMovies)
+const { allGenres, genreById } = require('../controllers/genresController');
 
-module.exports = router
+router.get('/', allGenres);
+router.get('/:id', genreById);
+
+module.exports = router;

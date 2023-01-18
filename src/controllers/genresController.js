@@ -1,21 +1,39 @@
+const { request, response } = require('express');
 const {
-    actorModel: ActorsModel,
-    genresModel: GenresModel,
-    moviesModel: MoviesModel,
-    actor_movieModel
-  } = require('../data/associations');
+  genresModel: GenresModel,
+  moviesModel: MoviesModel,
+} = require('../data/associations');
 
-
-  
-const detailGenreWithMovies = async(req,res)=>{
-    const {id} = req.params
-    const genre = await GenresModel.findByPk(id,{ include : MoviesModel})
-    // res.send(genre)
-    res.render('genreDetails',{
-        title:`Genero ${genre.name}`,
-        genre
-    })
-}
+const allGenres = async (req = request, res = response) => {
+  try {
+    const genres = await GenresModel.findAll();
+    res.status(200).json({
+      data: genres,
+      msg: 'Todos los generos',
+    });
+  } catch (error) {
+    res.status(500).json('Server Error');
+    console.log(error);
+  }
+};
+const genreById = async (req = request, res = response) => {
+  const { id } = req.params;
+  try {
+    const genre = await GenresModel.findByPk(id, {
+      include: {
+        model: MoviesModel,
+      },
+    });
+    res.status(200).json({
+      data: genre,
+      msg: `Genero ${id} con peliculas asociadas`,
+    });
+  } catch (error) {
+    res.status(500).json('Server Error');
+    console.log(error);
+  }
+};
 module.exports = {
-    detailGenreWithMovies
-}
+  allGenres,
+  genreById,
+};

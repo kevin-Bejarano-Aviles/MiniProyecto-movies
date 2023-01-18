@@ -1,19 +1,40 @@
+const { request, response } = require('express');
 const {
-    actorModel: ActorsModel,
-    genresModel: GenresModel,
-    moviesModel: MoviesModel,
-    actor_movieModel
-  } = require('../data/associations');
+  actorModel: ActorsModel,
+  moviesModel: MoviesModel,
+} = require('../data/associations');
 
-const actorDetails = async(req,res)=>{
-    const {id} = req.params
-    const actor = await ActorsModel.findByPk(id,{include:{model:MoviesModel}});
-    // res.send(actor)
-    res.render('actorDetail',{
-        title:`Actor: ${actor.first_name} ${actor.last_name}`,
-        actor
-    })
-}
+const allActors = async (req = request, res = response) => {
+  try {
+    const actors = await ActorsModel.findAll();
+    res.status(200).json({
+      data: actors,
+      msg: 'Todos los actores',
+    });
+  } catch (error) {
+    res.status(500).json({ msg: 'Server Error' });
+    console.log(error);
+  }
+};
+const actorById = async (req = request, res = response) => {
+  const { id } = req.params;
+  try {
+    const actor = await ActorsModel.findByPk(id, {
+      include: {
+        model: MoviesModel,
+      },
+    });
+    res.status(200).json({
+      data: actor,
+      msg: `Detalle del actor ${id} con sus peliculas`,
+    });
+  } catch (error) {
+    res.status(500).json({ msg: 'Server Error' });
+    console.log(error);
+  }
+};
+
 module.exports = {
-    actorDetails
-}
+  actorById,
+  allActors,
+};

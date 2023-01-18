@@ -14,5 +14,8 @@ module.exports=[
         .isNumeric().withMessage('La duracion tiene que estar en minutos'),
     check('release_date')
         .notEmpty().withMessage('El campo de la fecha no puede estar vacio')
-        .isDate().withMessage('La fecha, tiene que ser valida'),
+        .isDate().withMessage('El campo tiene que ser una fecha valida con el formato YYYY-MM-DD'),
+    check('genre_id')
+        .notEmpty().withMessage('La pelicula tiene que tener un genero')
+        .isNumeric().withMessage('El id del genero tiene que ser un numero')
 ]

@@ -25,7 +25,7 @@ app.use(express.json());
 app.use('/',homeRouter)
 app.use('/movies', moviesRouter);
 app.use('/genres',generRouter)
-app.use('/actor',actorRouter)
+app.use('/actors',actorRouter)
 
 const dbConnectionServerUp = async () => {
   try {
