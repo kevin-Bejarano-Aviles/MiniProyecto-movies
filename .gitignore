@@ -1,4 +1,4 @@
-/utils/log-api.log
+/src/utils/log-api.log
 node_modules
 .env
 /dist
