@@ -2,35 +2,51 @@
   "name": "miniproyecto-movies",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "lint": "eslint src/"
+    "start": "node ./dist/app.js",
+    "dev": "ts-node-dev ./src/app.ts",
+    "devnode": "npx nodemon ./src/app.ts",
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevin-Bejarano-Aviles/MiniProyecto-movies.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevin-Bejarano-Aviles/MiniProyecto-movies/issues"
+  },
+  "homepage": "https://github.com/kevin-Bejarano-Aviles/MiniProyecto-movies#readme",
   "devDependencies": {
-    "eslint": "^8.31.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "nodemon": "^2.0.20",
-    "prettier": "^2.8.1"
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.15",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/method-override": "^0.0.32",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^18.11.18",
+    "@types/validator": "^13.7.11",
+    "sequelize-typescript": "^2.1.5",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
   },
   "dependencies": {
+    "axios": "^1.2.3",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
-    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-validator": "^6.14.2",
+    "jsonwebtoken": "^9.0.0",
     "method-override": "^3.0.0",
-    "moment": "^2.29.4",
     "morgan": "^1.10.0",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.28.0"
+    "mysql2": "^3.0.1",
+    "sequelize": "^6.28.0",
+    "winston": "^3.8.2"
   }
 }

@@ -1,2 +1,4 @@
 node_modules
-src/.env
+utils/log-api.log
+.env
+dist
