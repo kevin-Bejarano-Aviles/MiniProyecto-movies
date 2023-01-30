@@ -4,8 +4,7 @@ import { movieBy } from '../helpers/getMovies';
 import { handleHttp } from '../helpers/handleError';
 import { BodyMovies } from '../interfaces/bodyMovies';
 import { logger } from '../utils/logger';
-
-
+import {Op} from 'sequelize'
 const allMovies = async(req:Request,res:Response)=>{
     try {
         const movies = await MovieModel.findAll();
@@ -129,6 +128,25 @@ const addActorToMovie = async(req:Request,res:Response)=>{
     }
 
 }
+const moviesSearch = async(req:Request,res:Response)=>{
+    const { search = '' } = req.query;
+    try {
+        const movies = await MovieModel.findAll({
+            where:{
+                title:{
+                    [Op.substring]:search
+                }
+            }
+        });
+        res.status(200).json({
+            data:movies,
+            msg:''
+        })
+    } catch (error) {
+        handleHttp(res,'SERVER_ERROR')
+        logger.error(error)
+    }
+}
 
 export {
     addActorToMovie,
@@ -137,4 +155,5 @@ export {
     deleteMovie,
     editMovie,
     movieById,
+    moviesSearch
 }

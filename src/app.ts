@@ -8,7 +8,7 @@ import methodOverride from 'method-override'
 import movieRouter from './routes/movies';
 import genreRouter from './routes/genres';
 import actorRouter from './routes/actor';
-// import userRouter from './routes/user'
+import userRouter from './routes/user'
 import { logger } from './utils/logger';
 
 dotenv.config()
@@ -25,7 +25,7 @@ app.use(express.json())
 app.use('/movies',movieRouter);
 app.use('/genres',genreRouter);
 app.use('/actors',actorRouter);
-// app.use('/users',userRouter);
+app.use('/users',userRouter);
 
 app.use((req:Request,res:Response)=>{
     logger.warn(`Page:${req.originalUrl} not found`);
