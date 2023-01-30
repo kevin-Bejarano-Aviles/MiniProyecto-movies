@@ -1,7 +1,7 @@
 # Desafio Api de peliculas
 
 ## Requerimientos:
-El objetivo del desafio era crear un CRUD de peliculas donde se pudiera crear, ver, editar y eliminar peliculas, tambien donde se pueda ver que genero es, ver peliculas de un genero especifico. Tambien se pueden ver los actores de cada pelicula, ver la informacion del actor, ver las peliculas del actor, agregar un actor a una pelicula. 
+El objetivo del desafio era crear un CRUD de peliculas donde se pudiera crear, ver, editar y eliminar peliculas, tambien donde se pueda ver que genero es, ver peliculas de un genero especifico. En la api tambien se pueden ver los actores de cada pelicula, ver la informacion del actor, ver las peliculas del actor, agregar un actor a una pelicula. 
 
 ## Pasos a seguir
 - npm i (instalar las dependencias)
